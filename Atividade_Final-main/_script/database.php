@@ -4,7 +4,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$database = "autopecas";
+$database = "CeAdeCarro";
 
 // Criando a conexão
 $conn = new mysqli($servername, $username, $password, $database, 3307);
