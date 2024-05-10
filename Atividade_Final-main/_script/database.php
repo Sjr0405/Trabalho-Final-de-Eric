@@ -7,6 +7,6 @@ $password = "";
 $database = "autopecas";
 
 // Criando a conexão
-$conn = new mysqli($servername, $username, $password, $database, 3306);
+$conn = new mysqli($servername, $username, $password, $database, 3307);
 
 ?>
