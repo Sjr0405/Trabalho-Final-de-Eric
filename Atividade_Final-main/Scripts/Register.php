@@ -1,6 +1,17 @@
 <?php
 include 'Database.php';
 
+$uploadDirectory = 'uploads';
+
+// Verificar se o diretório já existe
+if (!file_exists($uploadDirectory)) {
+    // Se não existir, tenta criar o diretório
+    if (!mkdir($uploadDirectory, 0777, true)) {
+        // Se a criação falhar, exiba uma mensagem de erro
+        die('Erro ao criar o diretório de uploads');
+    }
+}
+
 function updateStockQuantity($conn, $cod_peca, $quantidade) {
     // Preparar a consulta SQL para atualizar a quantidade em estoque
     $sql_update = "UPDATE Pecas SET Quantidade = Quantidade + ? WHERE Cod_Peca = ?";
@@ -51,9 +62,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     } else { // Se a peça não existe, inserir uma nova peça
                         // Inserir o caminho da imagem no banco de dados
                         $imagem_path = $target_file;
-                        $sql_insert = "INSERT INTO Pecas (Nome_Peca, Fornecedor, Valor_Compra, Valor_Venda, Quantidade, Imagem) VALUES (?, ?, ?, ?, ?, ?)";
+                        $sql_insert = "INSERT INTO Pecas (Nome_Peca, Fornecedor, Valor_Compra, Valor_Venda, Quantidade) VALUES (?, ?, ?, ?, ?)";
                         $stmt_insert = $conn->prepare($sql_insert);
-                        $stmt_insert->bind_param("sssdds", $nome, $fornecedor, $valor_compra, $valor_venda, $quantidade, $imagem_path);
+                        $stmt_insert->bind_param("sssdd", $nome, $fornecedor, $valor_compra, $valor_venda, $quantidade);
                         if ($stmt_insert->execute()) {
                             // Redirecionar para a página de cadastro de peças
                             header("Location: cadastro_pecas.php");

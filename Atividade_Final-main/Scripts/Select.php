@@ -1,7 +1,7 @@
 <?php
 include 'Database.php';
 
-$sql = "SELECT Nome_Peca, Fornecedor, Valor_Compra, Valor_Venda, Quantidade, Imagem_id FROM Pecas";
+$sql = "SELECT Nome_Peca, Fornecedor, Valor_Compra, Valor_Venda, Quantidade FROM Pecas";
 
 $result = $conn->query($sql);
 

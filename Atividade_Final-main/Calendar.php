@@ -8,11 +8,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Slick Carousel -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <!-- FullCalendar -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
-  
 </head>
+
 <body>
   <div class="container">
     <nav>
@@ -81,7 +84,7 @@
         editable: true,
         selectable: true,
         droppable: true,
-        events: 'ListEvents.php',
+        events: 'Scripts/ListEvents.php',
         eventClick: function(info) {
           if (confirm("Deseja excluir o evento '" + info.event.title + "'?")) {
             info.event.remove();
@@ -97,7 +100,7 @@
         var start = $('#event-start').val();
         var end = $('#event-end').val();
         $.ajax({
-          url: 'AddEvents.php',
+          url: 'Scripts/AddEvents.php',
           type: 'POST',
           data: {
             title: title,
