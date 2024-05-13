@@ -16,7 +16,7 @@
 
   <body>
     <div class="container">
-      <nav>
+    <nav>
         <ul>
           <li><a href="#" class="logo">
               <img src="Images/logo.png" alt="">
@@ -28,7 +28,7 @@
             </a></li>
           <li><a href="Add.php">
               <i class="fas fa-user"></i>
-              <span class="nav-item">Cadastrar Peças</span>
+              <span class="nav-item">Cadastrar Itens</span>
             </a></li>
           <li><a href="List.php">
               <i class="fas fa-list"></i>

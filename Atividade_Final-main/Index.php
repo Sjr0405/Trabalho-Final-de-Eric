@@ -17,30 +17,30 @@
 
 <body>
     <div class="container">
-        <nav>
-            <ul>
-                <li><a href="#" class="logo">
-                        <img src="Images/logo.png" alt="">
-                        <span class="nav-item">Autopeças</span>
-                    </a></li>
-                <li><a href="Index.php">
-                        <i class="fas fa-home"></i>
-                        <span class="nav-item">Home</span>
-                    </a></li>
-                <li><a href="Add.php">
-                        <i class="fas fa-user"></i>
-                        <span class="nav-item">Cadastrar Peças</span>
-                    </a></li>
-                <li><a href="List.php">
-                        <i class="fas fa-list"></i>
-                        <span class="nav-item">Estoque</span>
-                    </a></li>
-                <li><a href="Calendar.php">
-                        <i class="fas fa-calendar"></i>
-                        <span class="nav-item">Calendario</span>
-                    </a></li>
-            </ul>
-        </nav>
+    <nav>
+        <ul>
+          <li><a href="#" class="logo">
+              <img src="Images/logo.png" alt="">
+              <span class="nav-item">Autopeças</span>
+            </a></li>
+          <li><a href="Index.php">
+              <i class="fas fa-home"></i>
+              <span class="nav-item">Home</span>
+            </a></li>
+          <li><a href="Add.php">
+              <i class="fas fa-user"></i>
+              <span class="nav-item">Cadastrar Itens</span>
+            </a></li>
+          <li><a href="List.php">
+              <i class="fas fa-list"></i>
+              <span class="nav-item">Estoque</span>
+            </a></li>
+          <li><a href="Calendar.php">
+              <i class="fas fa-calendar"></i>
+              <span class="nav-item">Calendario</span>
+            </a></li>
+        </ul>
+      </nav>
 
         <section class="main">
             <div class="main-top">

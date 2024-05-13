@@ -24,7 +24,7 @@ include 'Scripts/Select.php';
     <nav>
         <ul>
           <li><a href="#" class="logo">
-              <img src="Imagens/logo.png" alt="">
+              <img src="Images/logo.png" alt="">
               <span class="nav-item">Autopeças</span>
             </a></li>
           <li><a href="Index.php">
@@ -33,7 +33,7 @@ include 'Scripts/Select.php';
             </a></li>
           <li><a href="Add.php">
               <i class="fas fa-user"></i>
-              <span class="nav-item">Cadastrar Peças</span>
+              <span class="nav-item">Cadastrar Itens</span>
             </a></li>
           <li><a href="List.php">
               <i class="fas fa-list"></i>

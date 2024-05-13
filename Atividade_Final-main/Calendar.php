@@ -27,7 +27,7 @@
           </a></li>
         <li><a href="Add.php">
             <i class="fas fa-user"></i>
-            <span class="nav-item">Cadastrar Peças</span>
+            <span class="nav-item">Cadastrar Itens</span>
           </a></li>
         <li><a href="List.php">
             <i class="fas fa-list"></i>
@@ -39,6 +39,7 @@
           </a></li>
       </ul>
     </nav>
+
     <section class="main">
       <div class="main-top">
         <h1>Calendario de Eventos</h1>
@@ -80,65 +81,43 @@
         editable: true,
         selectable: true,
         droppable: true,
-        events: [
-          {
-            title: 'All Day Event',
-            start: '2023-01-01'
-          },
-          {
-            title: 'Long Event',
-            start: '2023-01-07',
-            end: '2023-01-10'
-          },
-          {
-            groupId: 999,
-            title: 'Repeating Event',
-            start: '2023-01-09T16:00:00'
-          },
-          {
-            groupId: 999,
-            title: 'Repeating Event',
-            start: '2023-01-16T16:00:00'
-          },
-          {
-            title: 'Conference',
-            start: '2023-01-11',
-            end: '2023-01-13'
-          },
-          {
-            title: 'Meeting',
-            start: '2023-01-12T10:30:00',
-            end: '2023-01-12T12:30:00'
-          },
-          {
-            title: 'Lunch',
-            start: '2023-01-12T12:00:00'
-          },
-          {
-            title: 'Meeting',
-            start: '2023-01-12T14:30:00'
-          },
-          {
-            title: 'Happy Hour',
-            start: '2023-01-12T17:30:00'
-          },
-          {
-            title: 'Dinner',
-            start: '2023-01-12T20:00:00'
-          },
-          {
-            title: 'Birthday Party',
-            start: '2023-01-13T07:00:00'
-          },
-          {
-            title: 'Click for Google',
-            url: 'http://google.com/',
-            start: '2023-01-28'
+        events: 'ListEvents.php',
+        eventClick: function(info) {
+          if (confirm("Deseja excluir o evento '" + info.event.title + "'?")) {
+            info.event.remove();
           }
-        ]
+        }
       });
 
       calendar.render();
+
+      $('#add-event-form').submit(function(e) {
+        e.preventDefault();
+        var title = $('#event-title').val();
+        var start = $('#event-start').val();
+        var end = $('#event-end').val();
+        $.ajax({
+          url: 'AddEvents.php',
+          type: 'POST',
+          data: {
+            title: title,
+            start: start,
+            end: end
+          },
+          success: function(response) {
+            calendar.refetchEvents();
+            $('#modal').hide();
+          },
+          error: function(xhr, status, error) {
+            console.error(xhr.responseText);
+            alert('Erro ao adicionar evento.');
+          }
+        });
+      });
+
+      $('.close').click(function() {
+        $('#modal').hide();
+      });
     });
   </script>
 </body>
