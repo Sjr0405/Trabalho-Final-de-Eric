@@ -9,8 +9,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['cod_peca'])) {
 
     // Verifica se o código da peça é um número inteiro válido e não vazio
     if ($cod_peca !== false && $cod_peca !== null) {
-        // Consulta as informações da peça no banco de dados
-        $query = "SELECT Nome_Peca, Valor_Venda FROM Pecas WHERE Cod_Peca = ? LIMIT 1";
+        // Consulta as informações da peça no banco de dados, incluindo o campo 'Imagem'
+        $query = "SELECT Nome_Peca, Valor_Venda, Imagem FROM Pecas WHERE Cod_Peca = ? LIMIT 1";
         $stmt = $conn->prepare($query);
 
         // Verifica se a preparação da consulta foi bem-sucedida
@@ -25,10 +25,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['cod_peca'])) {
                 // Obtém os dados da peça encontrada
                 $row = $result->fetch_assoc();
 
-                // Retorna os dados da peça como um JSON
+                // Retorna os dados da peça, incluindo o caminho da imagem, como um JSON
                 echo json_encode(array(
                     'nome_peca' => $row['Nome_Peca'],
-                    'valor_venda' => $row['Valor_Venda']
+                    'valor_venda' => $row['Valor_Venda'],
+                    'imagem' => $row['Imagem']
                 ));
             } else {
                 // Se a peça não for encontrada, retorna um JSON vazio

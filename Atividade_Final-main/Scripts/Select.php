@@ -13,7 +13,7 @@ if ($conn === false) {
 }
 
 // Query SQL para selecionar todas as peças da tabela Pecas
-$sql = "SELECT Nome_Peca, Fornecedor, Valor_Compra, Valor_Venda, Quantidade, Imagem FROM Pecas";
+$sql = "SELECT Nome_Peca, Fornecedor, Valor_Compra, Valor_Venda, Quantidade, Imagem_id FROM Pecas";
 
 // Executa a consulta SQL com a conexão segura
 $result = $conn->query($sql);

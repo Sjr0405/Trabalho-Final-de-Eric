@@ -48,52 +48,33 @@
                 <i class="fas fa-cart-shopping"></i>
             </div>
 
-      <section class="main-skills">
-        <div class="carousel">
-          <div class="card" style="width: 18rem;">
-            <img src="./Images/Kit de Embreagem.png" class="card-img-top" style="width: 200px; height: 180px; display: block; margin: 0 auto; text-align: center;">
-            <div class="card-body">
-              <h4 class="card-title">Kit Embreagem Valeo 228212.</h4>
-              <p class="card-text">de R$ 365,72</p>
-              <h5 class="card-text">POR APENAS R$ 349,99</h5>
-            </div>
-          </div>
-          <div class="card" style="width: 18rem;">
-            <img src="./Images/Kit ArCondicionado.png" class="card-img-top" style="width: 200px; height: 180px; display: block; margin: 0 auto; text-align: center;">
-            <div class="card-body">
-            <h4 class="card-title">Kit Ar Condicionado Universal Premium Para Diversos Veículos</h4>
-            <p class="card-text">de R$ 2699,99</p>
-            <h5 class="card-text">POR APENAS R$ 2549,99</h5>
-            </div>
-          </div>
-          <div class="card" style="width: 18rem;">
-            <img src="./Images/Kit de Suspensão.png" class="card-img-top" style="width: 200px; height: 180px; display: block; margin: 0 auto; text-align: center;">
-            <div class="card-body">
-            <h4 class="card-title">Kit de Suspensão a Rosca Slim - Completo</h4>
-            <p class="card-text">de R$ 1499,99</p>
-            <h5 class="card-text">POR APENAS R$ 1249,99</h5>
-            </div>
-          </div>
-          <div class="card" style="width: 18rem;">
-            <img src="./Images/Fonte.png" class="card-img-top" style="width: 200px; height: 180px; display: block; margin: 0 auto; text-align: center;">
-            <div class="card-body">
-            <h4 class="card-title">Fonte Automotiva Stetsom Infinite 50A Bivolt Carregador Black</h4>
-            <p class="card-text">de R$ 324,99</p>
-            <h5 class="card-text">POR APENAS R$ 299,99</h5>
-            </div>
-          </div>
-          <div class="card" style="width: 18rem;">
-            <img src="./Images/Roda Kr Aro 14.png" class="card-img-top" style="width: 200px; height: 180px; display: block; margin: 0 auto; text-align: center;">
-            <div class="card-body">
-              <h4 class="card-title">Rodas Tarantula Aro 14 Ford Fiesta Ka</h4>
-              <p class="card-text">de R$ 1.739,99</p>
-              <h5 class="card-text">POR APENAS R$ 1699,99</h5>
-        </div>
-      </section>
+            <section class="main-skills">
+                <div class="carousel">
+                    <?php
+                    $sql = "SELECT Cod_Peca, Nome_Peca, Valor_Venda, Imagem_id FROM Pecas";
+                    $result = $conn->query($sql);
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            echo "<div class='card' style='width: 18rem;'>";
+                            // Adiciona a imagem da peça
+                            echo "<img src='retrieve_image.php?id=" . $row['Imagem_id'] . "' class='card-img-top' style='width: 200px; height: 180px; display: block; margin: 0 auto; text-align: center;'>";
+                            echo "<div class='card-body'>";
+                            echo "<h4 class='card-title'>" . $row['Nome_Peca'] . "</h4>";
+                            echo "<p class='card-text'>de R$ " . $row['Valor_Venda'] . "</p>";
+                            echo "<h5 class='card-text'>POR APENAS R$ " . $row['Valor_Venda'] . "</h5>";
+                            echo "</div></div>";
+                        }
+                    } else {
+                        echo "<p>Nenhuma peça encontrada</p>";
+                    }
+                    ?>
+                </div>
+            </section>
 
             <section class="main-course">
                 <h1>Tela de Finalização da Compra</h1>
                 <div class="course-box">
+                    <!-- Formulário para finalização da compra -->
                     <form action="_script/venda.php" method="post" id="cart-form">
                         <!-- Selecione a Peça -->
                         <div class="form-group">
@@ -101,6 +82,7 @@
                             <select id="codigo_peca" name="codigo_peca[]" class="form-control" required>
                                 <option disabled selected value="">Selecione...</option>
                                 <?php
+                                // Recupera as peças do banco de dados
                                 $sql = "SELECT Cod_Peca, Nome_Peca, Valor_Venda, Quantidade FROM Pecas";
                                 $result = $conn->query($sql);
                                 if ($result->num_rows > 0) {
