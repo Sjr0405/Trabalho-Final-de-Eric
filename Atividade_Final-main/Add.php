@@ -46,7 +46,7 @@
 
     <section class="main">
       <div class="main-top">
-        <h1>Produtos</h1>
+        <h1>Produtos em Promoção</h1>
         <i class="fas fa-user-cog"></i>
       </div>
 
@@ -92,6 +92,24 @@
               <h5 class="card-text">POR APENAS R$ 1699,99</h5>
         </div>
     </section>
+
+    <script>
+          $(document).ready(function() {
+            $('.carousel').slick({
+              slidesToShow: 3, // Quantidade de cards visíveis de uma vez
+              slidesToScroll: 1, // Quantidade de cards a rolar
+              prevArrow: $('.prev'), // Botão de navegação para anterior
+              nextArrow: $('.next'), // Botão de navegação para próximo
+              responsive: [{
+                breakpoint: 768, // Breakpoint para telas menores
+                settings: {
+                  slidesToShow: 1 // Reduzir a quantidade de cards visíveis em telas menores
+                }
+              }]
+            });
+          });
+        </script>
+
 
     <section class="main-course">
         <h1>Cadastro de Peças</h1>
