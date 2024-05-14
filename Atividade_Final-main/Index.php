@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
   <!-- jQuery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- Slick Carousel -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
@@ -148,7 +150,7 @@
 
             <div class="form-group">
               <label for="valor_venda">Valor de Venda:</label>
-              <input type="number" id="valor_venda" name="valor_venda[]" class="form-control" step="0.01" readonly>
+              <input type="text" id="valor_venda" name="valor_venda[]" class="form-control" readonly>
             </div>
 
             <div class="form-group">

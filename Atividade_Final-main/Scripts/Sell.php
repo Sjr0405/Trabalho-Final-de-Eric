@@ -36,11 +36,6 @@ if(isset($_POST['cart_items'])) {
         // Se não houve erro, confirma a transação
         mysqli_commit($conn);
 
-        // Insere os detalhes da venda na tabela de vendas
-        // Aqui você precisa implementar o código para inserir os detalhes da venda em uma tabela de vendas no seu banco de dados
-        // Por exemplo:
-        // $insertQuery = "INSERT INTO Vendas (Cod_Peca, Quantidade, Valor_Venda) VALUES (...)";
-
         // Exemplo de resposta de sucesso
         echo "Venda concluída com sucesso!";
     }

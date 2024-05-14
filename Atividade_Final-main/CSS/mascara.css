@@ -361,3 +361,39 @@ a:hover {
 #calendar {
   max-width: 100%; /* Calendário ocupa no máximo a largura da section */
 }
+
+/* Estilos para o popover */
+.popover {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.popover-arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  margin: 0;
+  border-color: transparent;
+}
+
+.popover-arrow.top {
+  bottom: -8px;
+  left: 50%;
+  margin-left: -8px;
+  border-width: 8px 8px 0;
+  border-top-color: #fff;
+}
+
+.popover-arrow.left {
+  top: 50%;
+  right: -8px;
+  margin-top: -8px;
+  border-width: 8px 8px 8px 0;
+  border-left-color: #fff;
+}
