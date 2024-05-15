@@ -13,11 +13,14 @@ CREATE TABLE IF NOT EXISTS Eventos (
     Data_Fim DATETIME NOT NULL
 );
 
--- Tabela para o controle de imagens
-CREATE TABLE IF NOT EXISTS Imagens (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    conteudo BLOB NOT NULL
+-- Tabela para o cadastro de peças
+CREATE TABLE IF NOT EXISTS Pecas (
+    Cod_Peca INT AUTO_INCREMENT PRIMARY KEY,
+    Nome_Peca VARCHAR(100) NOT NULL,
+    Fornecedor VARCHAR(100),
+    Valor_Compra DECIMAL(10, 2) NOT NULL,
+    Valor_Venda DECIMAL(10, 2) NOT NULL,
+    Quantidade INT NOT NULL
 );
 
 -- Tabela para o controle do carrinho de compras
@@ -31,18 +34,6 @@ CREATE TABLE IF NOT EXISTS Carrinho (
     FOREIGN KEY (Cod_Peca) REFERENCES Pecas(Cod_Peca)
 );
 
--- Tabela para o cadastro de peças
-CREATE TABLE IF NOT EXISTS Pecas (
-    Cod_Peca INT AUTO_INCREMENT PRIMARY KEY,
-    Nome_Peca VARCHAR(100) NOT NULL,
-    Fornecedor VARCHAR(100),
-    Valor_Compra DECIMAL(10, 2) NOT NULL,
-    Valor_Venda DECIMAL(10, 2) NOT NULL,
-    Quantidade INT NOT NULL,
-    Imagem_id INT,
-    FOREIGN KEY (Imagem_id) REFERENCES Imagens(id)
-);
-
 -- Tabela para o registro dos itens vendidos
 CREATE TABLE IF NOT EXISTS Itens_Venda (
     Cod_Item INT AUTO_INCREMENT PRIMARY KEY,
@@ -54,6 +45,5 @@ CREATE TABLE IF NOT EXISTS Itens_Venda (
     Quantidade INT NOT NULL,
     Total_Item DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY (Cod_Venda) REFERENCES Vendas(Cod_Venda),
-    FOREIGN KEY (Cod_Peca) REFERENCES Pecas(Cod_Peca),
-    FOREIGN KEY (Imagem_id) REFERENCES Imagens(id)
+    FOREIGN KEY (Cod_Peca) REFERENCES Pecas(Cod_Peca)
 );

@@ -115,7 +115,6 @@
           });
         </script>
 
-
       <section class="main-course">
         <h1>Tela de Finalização da Compra</h1>
         <div class="course-box">
@@ -187,11 +186,22 @@
       // Evento para adicionar item ao carrinho
       $('#add-to-cart').click(function() {
         var quantidade_disponivel = parseInt($('#codigo_peca option:selected').data('quantidade'));
-        if (quantidade_disponivel <= 0) {
+        var quantidade_selecionada = parseInt($('#quantidade').val());
+        
+        if (quantidade_selecionada <= 0) {
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Este item está esgotado!',
+            text: 'A quantidade deve ser maior que zero!',
+          });
+          return;
+        }
+        
+        if (quantidade_selecionada > quantidade_disponivel) {
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Você está tentando comprar mais do que temos em estoque!',
           });
           return;
         }
@@ -208,7 +218,7 @@
 
         // Atualiza o banco de dados subtraindo a quantidade comprada do estoque
         $.ajax({
-          url: 'Script/Refresh_DB.php',
+          url: 'Scripts/Refresh_DB.php',
           type: 'POST',
           data: {
             codigo_peca: codigo_peca,

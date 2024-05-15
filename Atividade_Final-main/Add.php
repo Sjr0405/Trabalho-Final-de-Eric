@@ -13,7 +13,7 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <!-- Slick Carousel -->
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
   <!-- FullCalendar -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/5.10.1/main.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
@@ -52,7 +52,7 @@
         <i class="fas fa-user-cog"></i>
       </div>
 
-    <section class="main-skills">
+      <section class="main-skills">
         <div class="carousel">
           <div class="card" style="width: 18rem;">
             <img src="./Images/Kit de Embreagem.png" class="card-img-top" style="width: 200px; height: 180px; display: block; margin: 0 auto; text-align: center;">
@@ -65,25 +65,25 @@
           <div class="card" style="width: 18rem;">
             <img src="./Images/Kit ArCondicionado.png" class="card-img-top" style="width: 200px; height: 180px; display: block; margin: 0 auto; text-align: center;">
             <div class="card-body">
-            <h4 class="card-title">Kit Ar Condicionado Universal Premium Para Diversos Veículos</h4>
-            <p class="card-text">de R$ 2699,99</p>
-            <h5 class="card-text">POR APENAS R$ 2549,99</h5>
+              <h4 class="card-title">Kit Ar Condicionado Universal Premium Para Diversos Veículos</h4>
+              <p class="card-text">de R$ 2699,99</p>
+              <h5 class="card-text">POR APENAS R$ 2549,99</h5>
             </div>
           </div>
           <div class="card" style="width: 18rem;">
             <img src="./Images/Kit de Suspensão.png" class="card-img-top" style="width: 200px; height: 180px; display: block; margin: 0 auto; text-align: center;">
             <div class="card-body">
-            <h4 class="card-title">Kit de Suspensão a Rosca Slim - Completo</h4>
-            <p class="card-text">de R$ 1499,99</p>
-            <h5 class="card-text">POR APENAS R$ 1249,99</h5>
+              <h4 class="card-title">Kit de Suspensão a Rosca Slim - Completo</h4>
+              <p class="card-text">de R$ 1499,99</p>
+              <h5 class="card-text">POR APENAS R$ 1249,99</h5>
             </div>
           </div>
           <div class="card" style="width: 18rem;">
             <img src="./Images/Fonte.png" class="card-img-top" style="width: 200px; height: 180px; display: block; margin: 0 auto; text-align: center;">
             <div class="card-body">
-            <h4 class="card-title">Fonte Automotiva Stetsom Infinite 50A Bivolt Carregador Black</h4>
-            <p class="card-text">de R$ 324,99</p>
-            <h5 class="card-text">POR APENAS R$ 299,99</h5>
+              <h4 class="card-title">Fonte Automotiva Stetsom Infinite 50A Bivolt Carregador Black</h4>
+              <p class="card-text">de R$ 324,99</p>
+              <h5 class="card-text">POR APENAS R$ 299,99</h5>
             </div>
           </div>
           <div class="card" style="width: 18rem;">
@@ -92,10 +92,12 @@
               <h4 class="card-title">Rodas Tarantula Aro 14 Ford Fiesta Ka</h4>
               <p class="card-text">de R$ 1.739,99</p>
               <h5 class="card-text">POR APENAS R$ 1699,99</h5>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <script>
+      <script>
           $(document).ready(function() {
             $('.carousel').slick({
               slidesToShow: 3, // Quantidade de cards visíveis de uma vez
@@ -112,8 +114,7 @@
           });
         </script>
 
-
-    <section class="main-course">
+      <section class="main-course">
         <h1>Cadastro de Peças</h1>
         <div class="course-box">
           <form action="./Scripts/Register.php" method="post" enctype="multipart/form-data" id="register-form">
@@ -141,18 +142,6 @@
               <label for="quantidade">Quantidade:</label>
               <input type="number" id="quantidade" name="quantidade" required>
             </div>
-
-            <div class="form-group">
-              <label for="customFile" class="upload-button">
-                Selecione uma Imagem:
-                <input type="file" class="custom-file-input" id="customFile" name="imagem" onchange="previewImage(this)" required>
-              </label>
-            </div>
-
-            <div class="form-group">
-              <img id="preview" src="#" alt="Imagem selecionada" style="display:none; max-width:200px; max-height:200px;" />
-            </div>
-
             <button type="submit" class="btn btn-primary pt-5">Cadastrar</button>
           </form>
         </div>
@@ -210,6 +199,4 @@
       });
     });
   </script>
-</body>
-
 </html>

@@ -1,7 +1,3 @@
-<?php
-include 'Scripts/Select.php';
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -123,7 +119,7 @@ include 'Scripts/Select.php';
 include 'Scripts/Database.php';
 
 // Definir a consulta SQL para recuperar os produtos do banco de dados
-$sql = "SELECT Nome_Peca, Fornecedor, Valor_Compra, Valor_Venda, Quantidade FROM Pecas";
+$sql = "SELECT Cod_Peca, Nome_Peca, Fornecedor, Valor_Compra, Valor_Venda, Quantidade FROM Pecas";
 
 // Executar a consulta SQL
 $result = $conn->query($sql);
@@ -132,12 +128,13 @@ $result = $conn->query($sql);
 if ($result !== false) {
 ?>
     <!-- Corpo da página -->
+    <h1>Listagem das Peças em Estoque</h1>
     <div class="container">
-        <h1>Listagem das Peças em Estoque</h1>
         <div class="course-box">
-            <table>
+            <table class="peca-table">
                 <thead>
                     <tr>
+                        <th>Cod da Peça</th>
                         <th>Nome da Peça</th>
                         <th>Fornecedor</th>
                         <th>Valor de Compra</th>
@@ -151,6 +148,7 @@ if ($result !== false) {
                     while ($row = $result->fetch_assoc()) {
                         // Exibir os dados de cada peça em uma linha da tabela
                         echo "<tr>";
+                        echo "<td>" . htmlspecialchars($row["Cod_Peca"]) . "</td>";
                         echo "<td>" . htmlspecialchars($row["Nome_Peca"]) . "</td>";
                         echo "<td>" . htmlspecialchars($row["Fornecedor"]) . "</td>";
                         echo "<td>" . htmlspecialchars($row["Valor_Compra"]) . "</td>";
@@ -163,6 +161,14 @@ if ($result !== false) {
             </table>
         </div>
     </div>
+    <style>
+        .peca-table {
+            border-spacing: 30px;
+        }
+        .peca-table td,
+        .peca-table th {
+        }
+    </style>
 <?php
 } else {
     // Se ocorrer um erro na consulta, exibir uma mensagem de erro
